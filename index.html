@@ -26,6 +26,9 @@
   --gradient-purple: linear-gradient(135deg, #8b5cf6, #6366f1);
   --glow-magenta: 0 0 40px rgba(233,30,140,0.15);
   --glow-purple: 0 0 40px rgba(139,92,246,0.15);
+  --accent-emerald: #10b981;
+  --gradient-emerald: linear-gradient(135deg, #10b981, #059669);
+  --glow-emerald: 0 0 40px rgba(16,185,129,0.15);
   --radius-lg: 16px;
   --radius-md: 12px;
   --radius-sm: 8px;
@@ -212,7 +215,7 @@ body {
 /* === KPI Cards === */
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   position: relative;
   z-index: 1;
@@ -235,6 +238,7 @@ body {
 }
 .kpi-card.magenta:hover { box-shadow: var(--glow-magenta); }
 .kpi-card.purple:hover { box-shadow: var(--glow-purple); }
+.kpi-card.emerald:hover { box-shadow: var(--glow-emerald); }
 
 .kpi-card::before {
   content: '';
@@ -244,6 +248,7 @@ body {
 }
 .kpi-card.magenta::before { background: var(--gradient-magenta); }
 .kpi-card.purple::before { background: var(--gradient-purple); }
+.kpi-card.emerald::before { background: var(--gradient-emerald); }
 
 .kpi-icon {
   width: 44px; height: 44px;
@@ -261,6 +266,10 @@ body {
   background: rgba(139,92,246,0.12);
   color: var(--accent-purple);
 }
+.kpi-card.emerald .kpi-icon {
+  background: rgba(16,185,129,0.12);
+  color: var(--accent-emerald);
+}
 .kpi-icon svg { width: 22px; height: 22px; }
 
 .kpi-value {
@@ -273,6 +282,7 @@ body {
 }
 .kpi-card.magenta .kpi-value { color: var(--accent-magenta); }
 .kpi-card.purple .kpi-value { color: var(--accent-purple); }
+.kpi-card.emerald .kpi-value { color: var(--accent-emerald); }
 
 .kpi-label {
   font-size: 0.85rem;
@@ -297,6 +307,10 @@ body {
 .kpi-card.purple .kpi-source {
   background: rgba(139,92,246,0.1);
   color: var(--accent-purple);
+}
+.kpi-card.emerald .kpi-source {
+  background: rgba(16,185,129,0.1);
+  color: var(--accent-emerald);
 }
 
 /* === Chart Section === */
@@ -548,7 +562,7 @@ body {
 @media (max-width: 600px) {
   .header { flex-direction: column; align-items: flex-start; }
   .header-right { text-align: left; }
-  .kpi-grid { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: 1fr !important; }
   .chart-section { padding: 20px; }
   .kpi-value { font-size: 2.4rem; }
   .total-number { font-size: 3rem; }
@@ -616,6 +630,14 @@ body {
       <div class="kpi-value" data-target="20">0</div>
       <div class="kpi-label">Numbers Dialed from ASH Data Sheet</div>
       <span class="kpi-source">ASH Data Sheet</span>
+    </div>
+    <div class="kpi-card emerald fade-up delay-4">
+      <div class="kpi-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+      </div>
+      <div class="kpi-value" data-target="6">0</div>
+      <div class="kpi-label">Appointments Booked</div>
+      <span class="kpi-source">Appointments</span>
     </div>
   </section>
 
